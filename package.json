@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "server": "json-server --watch db.json --port 3000"
+    "server": "json-server --watch db.json --port 3001"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.90.20",
@@ -17,6 +17,8 @@
     "react-router-dom": "^7.13.0"
   },
   "devDependencies": {
+    "@types/react": "^19.2.10",
+    "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react-swc": "^4.2.2",
     "json-server": "^0.17.4",
     "tailwindcss": "^4.1.18",

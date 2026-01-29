@@ -1,6 +1,9 @@
-// App component - Routing and layout will go here
-// Do NOT implement yet
+import BlogList from "./pages/BlogList";
 
 export default function App() {
-  return null;
+  return (
+    <main className="min-h-screen bg-gray-50">
+      <BlogList />
+    </main>
+  );
 }
