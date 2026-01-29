@@ -6,7 +6,11 @@ import { Card, CardContent } from "../components/ui/card";
 import { Separator } from "../components/ui/separator";
 import { Skeleton } from "../components/ui/skeleton";
 
-export default function BlogDetail() {
+interface BlogDetailProps {
+    isEmbedded?: boolean;
+}
+
+export default function BlogDetail({ isEmbedded = false }: BlogDetailProps) {
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
     const { data: blog, isLoading, error } = useBlog(id || "");
@@ -60,15 +64,18 @@ export default function BlogDetail() {
     if (!blog) return null;
 
     return (
-        <div className="container mx-auto px-4 py-12 max-w-4xl">
-            <Button
-                onClick={() => navigate("/")}
-                variant="outline"
-                className="mb-8 group"
-            >
-                <span className="mr-2 transition-transform group-hover:-translate-x-1">←</span>
-                Back to Blogs
-            </Button>
+        <div className={`container mx-auto px-4 py-12 max-w-4xl transition-all duration-300 ${isEmbedded ? "max-w-none px-8 lg:px-12" : ""
+            }`}>
+            {!isEmbedded && (
+                <Button
+                    onClick={() => navigate("/")}
+                    variant="outline"
+                    className="mb-8 group"
+                >
+                    <span className="mr-2 transition-transform group-hover:-translate-x-1">←</span>
+                    Back to Blogs
+                </Button>
+            )}
 
             <article>
                 {/* Cover Image */}

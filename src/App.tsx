@@ -7,10 +7,9 @@ export default function App() {
   return (
     <main className="min-h-screen bg-gray-50">
       <Routes>
-        {/* Redirect empty path to blogs or just render BlogList there */}
         <Route path="/" element={<BlogList />} />
         <Route path="/blogs/new" element={<CreateBlog />} />
-        <Route path="/blogs/:id" element={<BlogDetail />} />
+        <Route path="/blogs/:id" element={<BlogList />} />
 
         {/* Catch-all redirect to home */}
         <Route path="*" element={<Navigate to="/" replace />} />
